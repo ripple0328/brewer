@@ -15,7 +15,7 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 # involved with firmware updates.
 
 config :shoehorn,
-  init: [:nerves_runtime, :nerves_init_gadget],
+  init: [:nerves_runtime, :nerves_network],
   app: Mix.Project.config()[:app]
 
 # Use Ringlogger as the logger backend and remove :console.
@@ -33,18 +33,6 @@ config :logger, backends: [RingLogger]
 config :nerves, :firmware,
   provisioning: :nerves_hub
 
-config :nerves_init_gadget,
-  mdns_domain: "brewer.local",
-  node_name: "brewer",
-  node_host: :mdns_domain,
-  ifname: "wlan0",
-  address_method: :dhcpd
-
-config :nerves_firmware_ssh,
-  authorized_keys: [
-    File.read!(Path.join(System.user_home!, ".ssh/id_rsa.pub"))
-  ]
-
 config :nerves_network,
   regulatory_domain: "CN"
 
@@ -54,7 +42,8 @@ config :nerves_network, :default,
   wlan0: [
     ssid: System.get_env("NERVES_NETWORK_SSID"),
     psk: System.get_env("NERVES_NETWORK_PSK"),
-    key_mgmt: String.to_atom(key_mgmt)
+    key_mgmt: String.to_atom(key_mgmt),
+    scan_ssid: 1
   ]
 
 config :nerves_hub,

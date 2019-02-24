@@ -43,7 +43,7 @@ defmodule Brewer.MixProject do
       {:nerves_hub_cli, "~> 0.1", runtime: false},
      # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.9", targets: @all_targets},
-      {:nerves_init_gadget, "~> 0.6", targets: @all_targets},
+      {:nerves_network, "~> 0.5", targets: @all_targets},
       {:nerves_hub, "~> 0.1", targets: @all_targets},
       {:nerves_time, "~> 0.2", targets: @all_targets},
       # Dependencies for specific targets
