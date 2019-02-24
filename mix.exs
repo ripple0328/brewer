@@ -1,7 +1,7 @@
 defmodule Brewer.MixProject do
   use Mix.Project
 
-  @all_targets [:rpi, :rpi0, :rpi2, :rpi3, :rpi3a, :bbb, :x86_64]
+  @all_targets [:rpi0, :rpi3]
 
   def project do
     [
@@ -41,15 +41,13 @@ defmodule Brewer.MixProject do
       {:toolshed, "~> 0.2"},
       {:nerves_network, "~> 0.5"},
       {:nerves_hub_cli, "~> 0.1", runtime: false},
-
-      # Dependencies for all targets except :host
-      {:nerves_runtime, "~> 0.6", targets: @all_targets},
-
+     # Dependencies for all targets except :host
+      {:nerves_runtime, "~> 0.9", targets: @all_targets},
+      {:nerves_hub, "~> 0.1", targets: @all_targets},
+      {:nerves_time, "~> 0.2", targets: @all_targets},
       # Dependencies for specific targets
       {:nerves_system_rpi0, "~> 1.6", runtime: false, targets: :rpi0},
-      {:nerves_system_rpi2, "~> 1.6", runtime: false, targets: :rpi2},
-      {:nerves_system_rpi3, "~> 1.6", runtime: false, targets: :rpi3},
-      {:nerves_system_x86_64, "~> 1.6", runtime: false, targets: :x86_64},
+      {:nerves_system_rpi3, "~> 1.6", runtime: false, targets: :rpi3}
     ]
   end
 end
