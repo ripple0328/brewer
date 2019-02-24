@@ -33,8 +33,6 @@ config :logger, backends: [RingLogger]
 config :nerves, :firmware,
   provisioning: :nerves_hub
 
-node_name = if Mix.env() != :prod, do: "hello_network"
-
 config :nerves_init_gadget,
   mdns_domain: "brewer.local",
   node_name: "brewer",
