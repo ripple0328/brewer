@@ -6,6 +6,7 @@ defmodule Brewer.MixProject do
   def project do
     [
       app: :brewer,
+      name: "brew",
       version: "0.1.0",
       elixir: "~> 1.8",
       archives: [nerves_bootstrap: "~> 1.4"],

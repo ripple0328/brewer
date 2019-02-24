@@ -30,6 +30,9 @@ config :logger, backends: [RingLogger]
 
 # import_config "#{Mix.target()}.exs"
 
+config :nerves, :firmware,
+  provisioning: :nerves_hub
+
 config :nerves_network,
   regulatory_domain: "CN"
 
@@ -45,3 +48,6 @@ config :nerves_network, :default,
       ]
     ]
   ]
+
+config :nerves_hub,
+  fwup_public_keys: [:devkey]
