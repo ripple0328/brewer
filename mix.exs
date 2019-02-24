@@ -40,9 +40,9 @@ defmodule Brewer.MixProject do
       {:shoehorn, "~> 0.4"},
       {:ring_logger, "~> 0.6"},
       {:toolshed, "~> 0.2"},
-      {:nerves_network, "~> 0.5"},
       {:nerves_hub_cli, "~> 0.1", runtime: false},
      # Dependencies for all targets except :host
+      {:nerves_network, "~> 0.5", targets: @all_targets},
       {:nerves_runtime, "~> 0.9", targets: @all_targets},
       {:nerves_hub, "~> 0.1", targets: @all_targets},
       {:nerves_time, "~> 0.2", targets: @all_targets},
